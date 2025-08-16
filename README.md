@@ -2,9 +2,8 @@
 
 A sleek, modern, and visually artistic website for DigiChitraa, a premium poster printing company. Built with React, featuring a bold minimalistic design with dark theme and golden accents.
 
-```bash
-https://digichitraa.netlify.app/
-```
+[Website](https://digichitraa.netlify.app/)
+
 
 ## 🎨 Design Features
 

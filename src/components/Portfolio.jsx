@@ -62,21 +62,21 @@ const Portfolio = () => {
       category: 'quotes',
       title: 'Motivational Quote',
       description: 'Inspirational wall art',
-      image: 'motivation.jpeg'
+      image: motivationalImg
     },
     {
       id: 2,
       category: 'Devotional',
       title: 'Ganpati Bappa',
       description: 'Divine poster art',
-      image: 'bappa.jpeg'
+      image: bappaImg
     },
     {
       id: 3,
       category: 'Cars',
       title: 'Porsche 911',
       description: 'Classic sports car',
-      image: 'Porsche 911.jpeg'
+      image: porscheImg
     }
   ]
 
@@ -157,8 +157,35 @@ const Portfolio = () => {
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="portfolio-image">
-                <div className={`poster-placeholder ${item.image}`}></div>
+              <div
+                className="portfolio-image"
+                style={{
+                  height: '320px', // portrait aspect ratio
+                  width: '100%',
+                  position: 'relative',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  background: '#222',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: '16px',
+                    background: '#222',
+                    boxShadow: '0 0 10px #111',
+                    display: 'block',
+                    margin: 0,
+                    padding: 0
+                  }}
+                />
                 <div className="portfolio-overlay">
                   <div className="portfolio-content">
                     <h4>{item.title}</h4>

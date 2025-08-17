@@ -23,6 +23,7 @@ import ShivajiMaharajImg from '../assets/ShivajiMaharaj.jpg'
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all')
   const [showCollectionModal, setShowCollectionModal] = useState(false)
+  const [enlargedImage, setEnlargedImage] = useState(null)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
@@ -241,7 +242,6 @@ const Portfolio = () => {
                   ✕ Close
                 </button>
               </div>
-              
               <div 
                 style={{
                   display: 'grid',
@@ -256,8 +256,10 @@ const Portfolio = () => {
                       border: '1px solid #333',
                       borderRadius: '10px',
                       overflow: 'hidden',
-                      background: '#222'
+                      background: '#222',
+                      cursor: 'pointer'
                     }}
+                    onClick={() => setEnlargedImage(item)}
                   >
                     <img 
                       src={item.image} 
@@ -282,7 +284,8 @@ const Portfolio = () => {
                           fontSize: '12px',
                           width: '100%'
                         }}
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
                           handleOrderDesign(item.title)
                           setShowCollectionModal(false)
                         }}
@@ -293,6 +296,70 @@ const Portfolio = () => {
                   </div>
                 ))}
               </div>
+              {/* Enlarged Image Modal */}
+              {enlargedImage && (
+                <div
+                  style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    background: 'rgba(0,0,0,0.95)',
+                    zIndex: 20000,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                  onClick={() => setEnlargedImage(null)}
+                >
+                  <div
+                    style={{
+                      position: 'relative',
+                      background: '#222',
+                      borderRadius: '20px',
+                      padding: '30px',
+                      maxWidth: '90vw',
+                      maxHeight: '90vh',
+                      boxShadow: '0 0 40px #000',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                    }}
+                    onClick={e => e.stopPropagation()}
+                  >
+                    <img
+                      src={enlargedImage.image}
+                      alt={enlargedImage.title}
+                      style={{
+                        maxWidth: '80vw',
+                        maxHeight: '70vh',
+                        borderRadius: '10px',
+                        boxShadow: '0 0 20px #111',
+                        marginBottom: '20px',
+                        objectFit: 'contain',
+                        background: '#111'
+                      }}
+                    />
+                    <h2 style={{ color: '#eec667', marginBottom: '10px', fontSize: '1.5rem' }}>{enlargedImage.title}</h2>
+                    <button
+                      style={{
+                        background: '#eec667',
+                        color: '#161616',
+                        border: 'none',
+                        padding: '10px 20px',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        fontSize: '1rem',
+                        marginBottom: '10px'
+                      }}
+                      onClick={() => setEnlargedImage(null)}
+                    >
+                      ✕ Close
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}

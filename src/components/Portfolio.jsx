@@ -11,6 +11,14 @@ import muscleCarImg from '../assets/Muscle car.webp'
 import porscheImg from '../assets/Porsche 911.jpeg'
 import shivaLingaImg from '../assets/ShivaLinga.jpeg'
 import trustProcessImg from '../assets/Trustheprocess.jpeg'
+import MinimalImg from '../assets/minimal.jpeg'
+import ronaldoImg from '../assets/Ronaldo.jpeg'
+import SamuraiImg from '../assets/samurai.jpg'
+import MuscleImg from '../assets/muscle69.jpeg'
+import ScenicImg from '../assets/scenicroad.jpg'
+import ShivaImg from '../assets/Shiva.jpeg'
+import FeatherImg from '../assets/Feather.jpeg'
+import ShivajiMaharajImg from '../assets/ShivajiMaharaj.jpg'
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all')
@@ -27,7 +35,16 @@ const Portfolio = () => {
     { id: 5, title: 'Porsche 911', category: 'cars', image: porscheImg },
     { id: 6, title: 'Muscle Car', category: 'cars', image: muscleCarImg },
     { id: 7, title: 'Deadpool', category: 'movies', image: deadpoolImg },
-    { id: 8, title: 'Iron Man', category: 'movies', image: ironmanImg }
+    { id: 8, title: 'Iron Man', category: 'movies', image: ironmanImg },
+    { id: 9, title: 'Asthetics', category: 'Minimal', image: MinimalImg },
+    { id: 10, title: 'Ronaldo', category: 'quotes', image: ronaldoImg },
+    { id: 11, title: 'Samurai', category: 'Minimal', image: SamuraiImg },
+    { id: 12, title: 'Muscle Car', category: 'cars', image: MuscleImg },
+    { id: 13, title: 'Scenic', category: 'Minimal', image: ScenicImg },
+    { id: 14, title: 'Shiva', category: 'devotional', image: ShivaImg },
+    { id: 15, title: 'Morpankh', category: 'devotional', image: FeatherImg },
+    { id: 16, title: 'Shivaji Maharaj', category: 'devotional', image: ShivajiMaharajImg },
+
   ]
 
   const filters = [
